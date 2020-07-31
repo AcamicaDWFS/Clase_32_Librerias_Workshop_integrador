@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: grid;
+    grid-template-rows: 0.5fr 3fr 0.5fr;
+    margin: 15px;
+}
+
+header{
+    background-color: rgb(245, 221, 225);
+    grid-row: 1 / 1;
+}
+
+main{
+    background-color: aliceblue;
+    grid-row: 2 / 2;
+    display: flex;
+    
+}
+
+footer{
+    background-color: rgb(106, 114, 223);
+    grid-row: 3 / 3;
+}
