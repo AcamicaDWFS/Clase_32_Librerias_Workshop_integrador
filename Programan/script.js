@@ -97,6 +97,22 @@ function searchArrayByField(){
 	 	objArr.forEach(element => constructMainSection(element));
 	}
 }
+/*
+function searchArrayByFieldButton(personaje){
+	console.info("Voy a buscar");
+	let objArr =  arrayInfo.filter(function(charact) {
+		return charact.character.toLowerCase() == personaje.toLowerCase();
+	});
+	let row = document.querySelector(".featurette");
+	row.innerHTML = "";
+	console.info("***",objArr);
+	if(typeof objArr === 'undefined') {
+        alert('Resultados no encontrados');
+    }
+	else{
+	 	objArr.forEach(element => constructMainSection(element));
+	}
+}*/
 
 function constructMainSection(simpsonObject){
 		
@@ -157,6 +173,7 @@ function constructCols(simpsonObject){
 	let aelement = document.createElement("a");
 	aelement.innerHTML = "View details &raquo;";
 	aelement.href = '#';
+	///aelement.onclick = searchArrayByFieldButton(simpsonObject.quote);
 	aelement.setAttribute("class", "btn btn-secondary");
 	//console.info("aelement", aelement.className);
 	//aelement.className = "btn btn-secondary";
