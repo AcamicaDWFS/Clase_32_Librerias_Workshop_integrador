@@ -1,11 +1,11 @@
-document.querySelector(".btn", ".btn-outline-success", ".my-2 my-sm-0").addEventListener('submit', searchArrayByField);
+/*document.querySelector(".btn", ".btn-outline-success", ".my-2 my-sm-0").addEventListener('submit', searchArrayByField);
 document.querySelector("#search").addEventListener('keypress', (event) => {
 	if(event.keyCode == 13) {
 		searchArrayByField();
 		event.preventDefault();
 	  }
   });
-
+*/
 /*document.addEventListener('DOMContentLoaded', function() {
     alert("Cargando el dom ");
 	getUsers();
@@ -70,9 +70,9 @@ async function getUsers(){
 	info.then(arrayInfo => {
 		displayContent();
 	})
-	info.then(arrayInfo => { //cuando funcione bien la búsqueda...comentar aquí
+	/*info.then(arrayInfo => { //cuando funcione bien la búsqueda...comentar aquí
 		searchArrayByField();
-	})
+	})*/
 	info.catch(error => {
         console.log(error);
     })
@@ -83,31 +83,19 @@ async function getUsers(){
 function searchArrayByField(){
 	console.info("Voy a buscar");
 	let personaje = document.querySelector(".form-control", ".mr-sm-2");
-	//alert(personaje.value);
-	//console.info("personaje:",personaje.value);
+
 	let objArr =  arrayInfo.filter(function(charact) {
 		return charact.character.toLowerCase() == personaje.value.toLowerCase();
 	});
-	
+	let row = document.querySelector(".featurette");
+	row.innerHTML = "";
 	console.info("***",objArr);
-	if (objArr.length === 0) {
-		alert('Resultados no encontrados');
-	} else {
-		let row = document.querySelector(".featurette");
-		row.innerHTML = "";
-		objArr.forEach(element => constructMainSection(element));
+	if(typeof objArr === 'undefined') {
+        alert('Resultados no encontrados');
+    }
+	else{
+	 	objArr.forEach(element => constructMainSection(element));
 	}
-	// if(typeof objArr === 'undefined') {
-    //     alert('Resultados no encontrados');
-    // }else if(personaje==""){
-	// 	row.innerHTML = "";
-	// }
-	// else{
-	// 	let row = document.querySelector(".featurette");
-	// 	row.innerHTML = "";
-	// 	objArr.forEach(element => constructMainSection(element));
-
-	// }
 }
 
 function constructMainSection(simpsonObject){
