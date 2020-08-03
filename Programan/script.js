@@ -1,4 +1,11 @@
 document.querySelector(".btn", ".btn-outline-success", ".my-2 my-sm-0").addEventListener('submit', searchArrayByField);
+document.querySelector("#search").addEventListener('keypress', (event) => {
+	if(event.keyCode == 13) {
+		searchArrayByField();
+		event.preventDefault();
+	  }
+  });
+
 /*document.addEventListener('DOMContentLoaded', function() {
     alert("Cargando el dom ");
 	getUsers();
@@ -83,17 +90,24 @@ function searchArrayByField(){
 	});
 	
 	console.info("***",objArr);
-	if(typeof objArr === 'undefined') {
-        alert('Resultados no encontrados');
-    }else if(personaje==""){
-		row.innerHTML = "";
-	}
-	else{
+	if (objArr.length === 0) {
+		alert('Resultados no encontrados');
+	} else {
 		let row = document.querySelector(".featurette");
 		row.innerHTML = "";
 		objArr.forEach(element => constructMainSection(element));
-
 	}
+	// if(typeof objArr === 'undefined') {
+    //     alert('Resultados no encontrados');
+    // }else if(personaje==""){
+	// 	row.innerHTML = "";
+	// }
+	// else{
+	// 	let row = document.querySelector(".featurette");
+	// 	row.innerHTML = "";
+	// 	objArr.forEach(element => constructMainSection(element));
+
+	// }
 }
 
 function constructMainSection(simpsonObject){
@@ -154,6 +168,7 @@ function constructCols(simpsonObject){
 	let pButton = document.createElement("p");
 	let aelement = document.createElement("a");
 	aelement.innerHTML = "View details &raquo;";
+	aelement.href = '#';
 	aelement.setAttribute("class", "btn btn-secondary");
 	//console.info("aelement", aelement.className);
 	//aelement.className = "btn btn-secondary";
